@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardMapper">
+	<!-- <resultMap type="boardVO" id="selectAll">
+		<result column="user_num" property="userNum"></result>
+		<result column="user_name" property="userName"></result>
+		<result column="user_id" property="userId"></result>
+		<result column="user_pass" property="userPass"></result>
+	</resultMap>
+	 -->
+	<!-- 추가 -->
+	<insert id="insert">
+		INSERT INTO pej_board(board_tit, board_con, board_rei_date)
+		VALUES(#{boardTit}, #{boardCon}, now())
+	</insert>
+
+	<!-- 수정 -->
+	<update id="update">
+		UPDATE pej_board
+		SET board_tit= #{boardTit}, board_con= #{boardCon}, board_up_date= now()
+		WHERE board_num= #{boardNum}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="delete">
+		DELETE FROM pej_board
+		WHERE board_num= #{boardNum}
+	</delete>
+	
+	<!-- 조회 -->
+    <select resultType="boardVO" id="select">
+    	SELECT board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate
+    	FROM pej_board
+    	WHERE board_num = #{boardNum} 
+    </select>
+
+	<!-- 전체조회 -->
+	<select resultType="boardVO" id="selectAll">
+		select board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate
+		from pej_board 
+	</select>
+</mapper>

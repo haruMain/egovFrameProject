@@ -1,0 +1,61 @@
+#informLastWritten {
+    margin-top: 18px;
+}
+/* .right_content {
+    float: left;
+    padding: 17px 0 17px 17px;
+    width: 39%;
+    background: url(../images/bg_board_line.png)left 25px no-repeat;
+    line-height: 1.7;
+} */
+#informLastWritten {
+    margin-top: 18px;
+    background: url(../images/bg_board_line.png)left 7px no-repeat;
+    float: left;
+    padding: 0px 0 17px 17px;
+    width: 39%;
+    line-height: 1.7;
+}
+.board_left_content {
+	margin: 20px 0px;
+}
+textarea {
+    border: none;
+    resize: none;
+    border: 1px solid #000;
+    border-radius: 5px;
+    clear: both;
+    width: 97%;
+    height: 170px;
+    padding: 20px 10px;
+    border-bottom: 1px solid #d5d5d5;
+    line-height: 1.7;
+    font-size: 17px;
+}
+.board_create_content {
+	clear: both;
+    width: 99%;
+    height: 170px;
+    padding: 20px 10px;
+    border-bottom: 1px solid #d5d5d5;
+    line-height: 1.7;
+    font-size: 17px;
+}
+button.btn_one {
+    height: 40px;
+    line-height: 40px;
+    background: #81A4EE;
+    border: none;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: center;
+    width: 110px;
+}
+button.btn_two {
+	margin-top: 120px
+}
+button.modify {
+    
+}

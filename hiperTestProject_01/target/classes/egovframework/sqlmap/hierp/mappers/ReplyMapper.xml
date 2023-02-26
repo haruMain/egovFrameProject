@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReplyMapper">
+	<insert id="insert">
+        INSERT INTO pej_reply(reply_con, reply_writer, board_num)
+        VALUES(#{replyCon}, #{replyWriter}, #{boardNum})
+    </insert>
+    
+</mapper>
