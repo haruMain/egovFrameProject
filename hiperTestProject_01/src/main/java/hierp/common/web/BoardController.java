@@ -49,10 +49,7 @@ public class BoardController {
 		model.addAttribute("data", data);
 		return "update";
 	}
-//	@RequestMapping(value = "/update.do", method = RequestMethod.GET)
-//	public String getUpdate() throws Exception {
-//		return "update";
-//	}
+	
 //	게시글 수정 post
 	@RequestMapping(value = "/update.do", method = RequestMethod.POST)
 	public String postUpdate(BoardVO boardVO) throws Exception {
