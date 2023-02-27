@@ -42,7 +42,10 @@ public class ReplyDAO extends EgovAbstractMapper {
 	public List<ReplyVO> findAll(Long boardNum) throws Exception {
 		return selectList("ReplyMapper.selectAll", boardNum);
 	}
-//	public List<ReplyVO> selectAll(@Param("boardNumber") Long boardNumber, @Param("criteria") Criteria criteria);
-	
+
+//	단일 조회
+	public ReplyVO replySelect(ReplyVO replyVO) {
+		return sqlSessionTemplate.selectOne("ReplyMapper.selectOne", replyVO);
+	}
 
 }

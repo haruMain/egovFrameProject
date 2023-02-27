@@ -5,7 +5,7 @@
 	<!-- 댓글 작성 -->
 	<insert id="insert" parameterType="replyVO">
         INSERT INTO pej_reply(board_num, reply_con, reply_writer, reply_rei_date)
-        VALUES(#{boardNum}, #{replyCon}, #{replyWriter},#{replyReiDate})
+        VALUES(#{boardNum}, #{replyCon}, #{replyWriter}, now())
     </insert>
     
     <!-- 댓글 조회 -->
@@ -28,4 +28,13 @@
 		WHERE reply_num = #{replyNum}
 		and board_num = #{boardNum}
 	</delete>
+	
+	<!-- 댓글 단일 조회 -->
+	<select id="selectOne" resultType="replyVO">
+		SELECT reply_num, board_num, reply_con, reply_writer, reply_rei_date
+		FROM pej_reply
+		where board_num = #{boardNum}
+		and reply_num = #{replyNum}
+		
+	</select>
 </mapper>

@@ -16,4 +16,6 @@ public interface ReplyService {
 //  public ReplyVO show(Long replyNum);
 //	전체조회
 	public List<ReplyVO> showAll(Long boardNum) throws Exception;
+//	댓글 단일 조회
+	public ReplyVO show(ReplyVO replyVO);
 }

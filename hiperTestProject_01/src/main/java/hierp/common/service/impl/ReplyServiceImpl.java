@@ -43,6 +43,12 @@ public class ReplyServiceImpl implements ReplyService {
 	public List<ReplyVO> showAll(Long boardNum) throws Exception {
 		return replyDAO.findAll(boardNum);
 	}
+
+//	댓글 단일 조회
+	@Override
+	public ReplyVO show(ReplyVO replyVO) {
+		return replyDAO.replySelect(replyVO);
+	}
 	
 
 }

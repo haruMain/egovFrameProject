@@ -40,7 +40,6 @@ public class BoardDAO extends EgovAbstractMapper {
 //	전체조회
 	public List<BoardVO> findAll() {
 		return selectList("BoardMapper.selectAll");
-		
 	}
 	
 
