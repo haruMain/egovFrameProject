@@ -21,8 +21,12 @@
 	<body>
 		<div class="job_wrap">			
 			<h2>공지사항</h2>
-		    <div class="f_none">    
-				<button class="btn_search f_right mtb_10"  onclick="javascript:fn_goBbsNtc();">목록</button>	
+		    <div class="f_none">  
+		    <a href="<c:url value='create.do'/>" class="button">  
+				<button class="btn_search f_right mtb_10">
+					글 등록
+				</button>	
+				</a>
 			</div>	
 			<form action="/remove.do">
 			<div id="" class="board_view">				
@@ -70,4 +74,109 @@
 				</div>	
 			</form>		
 		</div>
+		
+		<div class="comment-box">
+                    
+   		                 <div class="comment-count">댓글 <span id="count">0</span></div>
+
+   		                 <div class="comment-name">
+	                        <span class="anonym">작성자 : 
+	                    	    <input type="text" class="form-control" id="replyWriter" placeholder="이름" name ="replyWriter" style="width: 100px; border:none;">
+	                        </span>
+	                      </div>   
+	                        	
+                    <div class="comment-sbox">
+                        <textarea class="comment-input" id="replyCon" cols="80" rows="2" name="replyCon" ></textarea>
+                    </div>
+                    	<div class="regBtn">
+                    		<button id="Comment_regist"> 댓글등록</button>
+                    	 </div>
+             </div>
+                    	 
+                    	 
+		<%-- <div class="reply_form">
+		<div>
+			<form method="post" action="/replyWrite.do">
+			<p>
+				<label>댓글 작성자</label> 
+				<input type="text" name="replyWriter">
+			</p>
+			<p>
+				<textarea type="text" rows="5" cols="50" name="replyCon"></textarea>
+			</p>
+			<p>
+				<input type="hidden" name="boardNum" value="${data.boardNum}">
+				<button type="submit">댓글 작성</button>
+			</p>
+			</form>
+			
+		</div>
+			<div>
+			<c:forEach items="${reply}" var="reply">
+				<li>
+					<div>
+						<p>${reply.replyWriter} / ${reply.replyReiDate}</p>
+						<p>${reply.replyCon }</p>
+					</div>
+				</li>	
+			</c:forEach>
+			</div>
+		</div> --%>
 	</body>
+	
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+	$('#Comment_regist').click(function() {
+			
+   			//Json으로 전달할 파라미터 변수선언
+   			const board_num = ${boardNum};
+   			const reply_writer = $('#replyWriter').val();
+   			const reply_con = $('#replyCon').val();
+   			
+   			console.log(board_num);
+   			console.log(reply_writer);
+   			console.log(reply_con);
+   		
+   			if(reply_writer == ''){
+   				alert('로그인 후 이용해주세요');
+   				return;
+   			}else if(reply_con == '') {
+   				alert('내용을 입력하세요');
+   			}
+   			
+   			$.ajax({
+   				type:'post',
+   				url:'<c:url value="/replyWrite.do"/>',
+   				data: JSON.stringify(
+   					{
+   						"board_num":board_num,
+   						"reply_writer":reply_writer,
+   						"reply_con":reply_con
+   					}		
+   				),
+   				contentType: 'application/json',
+   				success:function(data){
+   					console.log('통신성공' + data);
+   					if(data === 'InsertSuccess') {
+   						alert('댓글 등록이 완료되었습니다.');
+   						console.log('댓글 등록 완료');
+   						$('#reply_writer').val(com_writer);
+   	   					$('#reply_con').val('');
+   	   					getList();
+   					} else {
+   						alert('로그인 이후 이용해주시기 바랍니다.');
+   						console.log('댓글 등록 실패');
+   					}
+   				},
+   				error:function(){
+   					alert('통신실패');
+   				}
+   			});// 댓글 비동기 끝
+   			
+		});// 댓글등록 이벤트 끝
+		
+		getList();
+	
+	</srcrpt>
+	</html>
+	
+	

@@ -6,19 +6,22 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.view.RedirectView;
 
 import hierp.common.domain.vo.BoardVO;
+import hierp.common.domain.vo.ReplyVO;
 import hierp.common.service.BoardService;
+import hierp.common.service.ReplyService;
 
 @Controller("BoardController")
 public class BoardController {
 	
 	@Resource(name="BoardService")
 	private BoardService boardService;
+	
+	@Resource(name="ReplyService")
+	private ReplyService replyService;
 	
 //	게시글 목록
 	@RequestMapping(value = "/list.do")
@@ -59,9 +62,13 @@ public class BoardController {
 	
 //	게시글 상세보기
 	@RequestMapping(value = "/detail.do", method = RequestMethod.GET)
-	public String boardDetail(Model model, Long boardNum) {
+	public String boardDetail(Model model, Long boardNum) throws Exception {
 		BoardVO data = boardService.show(boardNum);
 		model.addAttribute("data", data);
+//		댓글조회
+		List<ReplyVO> reply = null;
+		reply = replyService.showAll(boardNum);
+		model.addAttribute("reply", reply);
 		return "detail";
 	}
 	

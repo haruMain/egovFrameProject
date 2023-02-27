@@ -2,6 +2,8 @@ package hierp.common.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import hierp.common.domain.vo.LoginDTO;
 import hierp.common.domain.vo.UserVO;
 
@@ -16,6 +18,11 @@ public interface UserService {
 	public List<UserVO> showAll();
 	
 //	로그인 처리
-	public UserVO login(LoginDTO loginDTO);
+	public String login(LoginDTO loginDTO, HttpSession httpSession);
+//	public String login(LoginDTO loginDTO);
+	
+//	로그아웃
+	public void logout(HttpSession httpSession);
+
 
 }

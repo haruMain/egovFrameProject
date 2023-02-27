@@ -1,14 +1,12 @@
 package hierp.common.service.impl;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import hierp.common.domain.vo.LoginDTO;
 import hierp.common.domain.vo.UserVO;
 import hierp.common.service.UserService;
@@ -38,8 +36,25 @@ public class UserServiceimpl implements UserService {
 	}
 
 //	로그인 처리
+//	@Override
+//	public String login(LoginDTO loginDTO) {
+//		return userDAO.login(loginDTO);
+//	}
 	@Override
-	public UserVO login(LoginDTO loginDTO) {
-		return userDAO.login(loginDTO);
+	public String login(LoginDTO loginDTO, HttpSession httpSession) {
+		String name = userDAO.login(loginDTO);
+		 if (name != null) { // 세션 변수 저장
+		  httpSession.setAttribute("userId", loginDTO.getUserId());
+		  httpSession.setAttribute("userName", name);
+		}
+		 return name;
 	}
+	
+
+//	로그아웃
+	@Override
+	public void logout(HttpSession httpSession) {
+		httpSession.invalidate();
+	}
+	
 }

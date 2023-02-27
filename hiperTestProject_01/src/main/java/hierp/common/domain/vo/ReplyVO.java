@@ -54,6 +54,4 @@ public class ReplyVO {
         this.replyWriter = replyWriter;
     }
 	
-	
-	
 }

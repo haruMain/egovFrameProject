@@ -21,9 +21,12 @@
 	<body>
 		<div class="job_wrap">			
 			<h2>공지사항</h2>
-		    <div class="f_none">    
-				<button class="f_right mtb_10 btn_one"  onclick="javascript:fn_goBbsNtc();">목록</button>	
+		    <div class="f_none">  
+		     <a href="<c:url value='list.do'/>">    
+				<button class="f_right mtb_10 btn_one">목록</button>	
+				</a>
 			</div>	
+			
 			<form class="center" method="post">
 			<div id="" class="board_view">				
 				<div class="board_row">
@@ -36,9 +39,7 @@
 				<div class="board_left_content">내용</div>
 				 <textarea type="text" name="boardCon"></textarea>
 				</div>
-									
 				<button class="f_right mtb_10 btn_one btn_two" onclick="javascript:fn_goBbsNtc();">등록</button>
-				
 			</div>	
 			</form>		
 		</div>

@@ -10,6 +10,7 @@
     <typeAliases>
 		<typeAlias alias="userVO" type="hierp.common.domain.vo.UserVO"/>
 		<typeAlias alias="boardVO" type="hierp.common.domain.vo.BoardVO"/>
+		<typeAlias alias="replyVO" type="hierp.common.domain.vo.ReplyVO"/>
     </typeAliases>
     
 </configuration>

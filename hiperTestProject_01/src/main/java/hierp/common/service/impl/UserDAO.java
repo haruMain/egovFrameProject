@@ -39,9 +39,7 @@ public class UserDAO extends EgovAbstractMapper {
 	}
 	
 //	로그인 처리
-	public UserVO login(LoginDTO loginDTO) {
+	public String login(LoginDTO loginDTO) {
 		return selectOne("UserMapper.login", loginDTO);
 	}
-	
-
 }

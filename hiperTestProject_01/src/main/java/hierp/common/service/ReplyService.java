@@ -8,12 +8,12 @@ import hierp.common.domain.vo.ReplyVO;
 public interface ReplyService {
 //  추가
   public void register(ReplyVO replyVO);
-//    수정
+//  수정
   public void modify(ReplyVO replyVO);
-//    삭제
+//  삭제
   public void remove(Long replyNum);
-//    조회
-  public ReplyVO show(Long replyNum);
+//  조회
+//  public ReplyVO show(Long replyNum);
 //	전체조회
-	public List<ReplyVO> showAll();
+	public List<ReplyVO> showAll(Long boardNum) throws Exception;
 }

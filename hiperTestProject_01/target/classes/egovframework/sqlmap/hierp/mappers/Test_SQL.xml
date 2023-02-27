@@ -36,8 +36,9 @@
 	
 	<!-- 로그인 처리 -->
 	<select id="login" resultType="userVO">
-		select * from
-		where user_id = #{userId}
+		select * 
+		from pej_user
+		where user_id = #{userId} and user_pass = #{userPass}
 	</select>
 	
 </mapper>
