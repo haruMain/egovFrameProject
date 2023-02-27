@@ -34,4 +34,10 @@
 	from pej_user 
 	</select>
 	
+	<!-- 로그인 처리 -->
+	<select id="login" resultType="userVO">
+		select * from
+		where user_id = #{userId}
+	</select>
+	
 </mapper>

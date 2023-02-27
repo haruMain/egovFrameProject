@@ -3,15 +3,13 @@ package hierp.common.service.impl;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.eclipse.jdt.internal.compiler.batch.Main;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
+import hierp.common.domain.vo.LoginDTO;
 import hierp.common.domain.vo.UserVO;
 
 @Repository("UserDAO")
@@ -38,10 +36,12 @@ public class UserDAO extends EgovAbstractMapper {
 //	전체조회
 	public List<UserVO> findAll() {
 		return selectList("UserMapper.selectAll");
-		
 	}
 	
-	
+//	로그인 처리
+	public UserVO login(LoginDTO loginDTO) {
+		return selectOne("UserMapper.login", loginDTO);
+	}
 	
 
 }

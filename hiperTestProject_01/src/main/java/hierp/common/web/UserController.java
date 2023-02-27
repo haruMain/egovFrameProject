@@ -1,6 +1,7 @@
 package hierp.common.web;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import hierp.common.domain.vo.LoginDTO;
 import hierp.common.domain.vo.UserVO;
 import hierp.common.service.UserService;
 
@@ -43,6 +45,16 @@ public class UserController {
 	        redirectAttributes.addFlashAttribute("msg", "REGISTERED");
 	        return "redirect:/user.do";
 	    }
+	 
+//	 로그인 처리
+	 @RequestMapping(value = "/loginPost.do", method = RequestMethod.POST)
+	 public void loginPost(LoginDTO loginDTO, Model model, HttpSession httpSession) throws Exception {
+		 UserVO userVO = userService.login(loginDTO);
+		 if(userVO==null || !BCrypt.checkpw(loginDTO.getUserPass(), userVO.getUserPass())) {
+			 return;
+		 }
+		 model.addAttribute("user", userVO);
+	 }
 	
 	
 //	 url경로 Test

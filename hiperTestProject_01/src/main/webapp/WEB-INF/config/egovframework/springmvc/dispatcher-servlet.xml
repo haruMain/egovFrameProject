@@ -29,4 +29,20 @@
     <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="1"
 	    p:viewClass="org.springframework.web.servlet.view.JstlView"
 	    p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
-</beans>
+	</beans>
+	
+	<!-- <beans:bean id="loginInterceptor" class="org.hierp.common.interceptor.LoginInterceptor"/>
+	
+	인터셉터 설정
+	<interceptors>
+    	<interceptor>
+      		<mapping path="/loginPost.do"/>
+      		<beans:ref bean="loginInterceptor"/>
+    	</interceptor>
+	</interceptors> -->
+	
+	
+	
+	
+	
+	
