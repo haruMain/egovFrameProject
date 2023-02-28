@@ -11,9 +11,7 @@ public interface ReplyService {
 //  수정
   public void modify(ReplyVO replyVO) throws Exception;
 //  삭제
-  public void remove(Long replyNum);
-//  조회
-//  public ReplyVO show(Long replyNum);
+  public void remove(ReplyVO replyVO) throws Exception;
 //	전체조회
 	public List<ReplyVO> showAll(Long boardNum) throws Exception;
 //	댓글 단일 조회

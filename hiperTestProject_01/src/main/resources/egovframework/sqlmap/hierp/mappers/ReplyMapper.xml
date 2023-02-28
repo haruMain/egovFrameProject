@@ -7,34 +7,28 @@
         INSERT INTO pej_reply(board_num, reply_con, reply_writer, reply_rei_date)
         VALUES(#{boardNum}, #{replyCon}, #{replyWriter}, now())
     </insert>
-    
     <!-- 댓글 조회 -->
 	<select id="selectAll" resultType="replyVO">
 		SELECT reply_num as replyNum, board_num as boardNum, reply_con as replyCon, reply_writer as replyWriter, reply_rei_date as replyReiDate, reply_up_date as replyUpDate
 		FROM pej_reply
 		where board_num = #{boardNum}
 	</select>
-
 	<!-- 댓글 수정 -->
 	<update id="update" parameterType="replyVO">
 		UPDATE pej_reply
 		SET reply_con = #{replyCon}, reply_writer = #{replyWriter}
 		WHERE reply_num = #{replyNum} and board_num = #{boardNum}
 	</update>
-	
 	<!-- 댓글 삭제 -->    
 	<delete id="delete" parameterType="replyVO">
 		DELETE FROM pej_reply
 		WHERE reply_num = #{replyNum}
-		and board_num = #{boardNum}
 	</delete>
-	
 	<!-- 댓글 단일 조회 -->
 	<select id="selectOne" resultType="replyVO" parameterType="replyVO">
 		SELECT reply_num as replyNum, board_num as boardNum, reply_con as replyCon, reply_writer as replyWriter, reply_rei_date as replyReiDate
 		FROM pej_reply
 		where board_num = #{boardNum}
 		and reply_num = #{replyNum}
-		
 	</select>
 </mapper>

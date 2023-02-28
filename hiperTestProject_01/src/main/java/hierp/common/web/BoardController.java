@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
 import hierp.common.domain.vo.ReplyVO;
 import hierp.common.service.BoardService;
@@ -37,30 +38,30 @@ public class BoardController {
 		return "create";
 	}
 	@RequestMapping(value = "/create.do", method = RequestMethod.POST)
-	public String postCreate(BoardVO boardVO) throws Exception {
-		boardService.register(boardVO);
+	public String postCreate(BoardDTO boardDTO) throws Exception {
+		boardService.register(boardDTO);
 		return "redirect:list.do";
 	}
 	
 //	게시글 수정페이지로 이동
 	@RequestMapping(value = "/update.do", method = RequestMethod.GET)
 	public String getUpdate(Model model, Long boardNum) {
-		BoardVO data = boardService.show(boardNum);
+		BoardDTO data = boardService.show(boardNum);
 		model.addAttribute("data", data);
 		return "update";
 	}
 	
 //	게시글 수정 post
 	@RequestMapping(value = "/update.do", method = RequestMethod.POST)
-	public String postUpdate(BoardVO boardVO) throws Exception {
-		boardService.modify(boardVO);
+	public String postUpdate(BoardDTO boardDTO) throws Exception {
+		boardService.modify(boardDTO);
 		return "redirect:list.do";
 	}
 	
 //	게시글 상세보기
 	@RequestMapping(value = "/detail.do", method = RequestMethod.GET)
 	public String boardDetail(Model model, Long boardNum) throws Exception {
-		BoardVO data = boardService.show(boardNum);
+		BoardDTO data = boardService.show(boardNum);
 		model.addAttribute("data", data);
 //		댓글조회
 		List<ReplyVO> reply = null;

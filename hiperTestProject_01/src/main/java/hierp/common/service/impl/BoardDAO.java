@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
+import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
 
 @Repository("BoardDAO")
@@ -21,12 +22,12 @@ public class BoardDAO extends EgovAbstractMapper {
 		return sqlSessionTemplate;
 	}
 //	추가
-	public void save(BoardVO boardVO) {
-		sqlSessionTemplate.insert("BoardMapper.insert",boardVO);
+	public void save(BoardDTO boardDTO) {
+		sqlSessionTemplate.insert("BoardMapper.insert",boardDTO);
 	}
 //	수정
-	public void setBoardVO(BoardVO boardVO) {
-		sqlSessionTemplate.update("BoardMapper.update",boardVO);
+	public void setBoardVO(BoardDTO boardDTO) {
+		sqlSessionTemplate.update("BoardMapper.update",boardDTO);
 	}
 //	삭제
 	public void remove(Long boardNum) {
@@ -36,11 +37,8 @@ public class BoardDAO extends EgovAbstractMapper {
 	public BoardVO findById(Long boardNum) {
 		return selectOne("BoardMapper.select",boardNum);
 	}
-	
 //	전체조회
 	public List<BoardVO> findAll() {
 		return selectList("BoardMapper.selectAll");
 	}
-	
-
 }

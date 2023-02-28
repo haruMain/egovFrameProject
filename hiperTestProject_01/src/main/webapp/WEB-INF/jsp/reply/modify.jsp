@@ -22,6 +22,7 @@
 	 <div class="reply_form">
 		<div>
 			<form method="post" action="/modify.do">
+			<div class="replyModify" style="margin: 0 auto; width: 500px;">
 			<p>
 				<label>댓글 작성자</label> 
 				<input type="text" name="replyWriter" value="${reply.replyWriter}" readonly="readonly"/>
@@ -34,6 +35,7 @@
 				<input type="hidden" name="replyNum" value="${reply.replyNum}">
 				<button type="submit">댓글 수정</button>
 			</p>
+			</div>
 			</form>
 			</div>
 		</div>

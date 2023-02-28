@@ -28,15 +28,9 @@ public class ReplyServiceImpl implements ReplyService {
 
 //	삭제
 	@Override
-	public void remove(Long replyNum) {
-		replyDAO.remove(replyNum);
+	public void remove(ReplyVO replyVO) throws Exception {
+		replyDAO.remove(replyVO);
 	}
-
-//	조회
-//	@Override
-//	public ReplyVO show(Long replyNum) {
-//		return replyDAO.findById(replyNum);
-//	}
 
 //	전체조회
 	@Override

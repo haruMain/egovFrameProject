@@ -27,13 +27,10 @@ public class ReplyController {
 //	 댓글 단일 조회 (수정 페이지)
 	@RequestMapping(value = "/modify.do", method = RequestMethod.GET)
 	public String getMofidy(@RequestParam("boardNum") Long boardNum, @RequestParam("replyNum") Long replyNum, Model model) throws Exception {
-		
 		ReplyVO replyVO = new ReplyVO();
 		replyVO.setBoardNum(boardNum);
 		replyVO.setReplyNum(replyNum);
-		
 		ReplyVO reply = replyService.show(replyVO);
-			 
 		model.addAttribute("reply", reply);
 		return "/reply/modify";
 	}
@@ -46,5 +43,17 @@ public class ReplyController {
 	}
 	
 //	댓글 삭제
+	@RequestMapping(value = "/replyDelete.do", method = RequestMethod.GET)
+	public String replyDelete(@RequestParam("replyNum") ReplyVO replyVO) throws Exception {
+		replyService.remove(replyVO);
+		return "redirect:detail.do?boardNum=" + replyVO.getBoardNum();
+	}
 	
 }
+
+
+
+
+
+
+

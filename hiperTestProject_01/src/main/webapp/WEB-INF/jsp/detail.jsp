@@ -16,7 +16,6 @@
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/board.css" />
 		<link rel="stylesheet" type="text/css" href="css/detail.css" />
-		
 	</head>
 	<body>
 		<div class="job_wrap">			
@@ -68,8 +67,7 @@
 			</form>		
 		</div>
                     	 
-                    	 
-	 <div class="reply_form">
+	 <div class="reply_form" style="width: 800px; margin: 0 auto;">
 		<div>
 			<form method="post" action="/replyWrite.do">
 			<p>
@@ -77,14 +75,13 @@
 				<input type="text" name="replyWriter">
 			</p>
 			<p>
-				<textarea type="text" rows="5" cols="30" name="replyCon"></textarea>
+				<textarea class="replyText" type="text" rows="5" cols="30" name="replyCon"></textarea>
 			</p>
 			<p>
 				<input type="hidden" name="boardNum" value="${data.boardNum}">
 				<button type="submit">댓글 작성</button>
 			</p>
 			</form>
-			
 		</div>
 			<div>
 			<c:forEach items="${reply}" var="reply">
@@ -94,7 +91,7 @@
 						<p>${reply.replyCon }</p>
 					</div>
 					<div class="btn_box">
-						<a href="/modify.do?boardNum=${data.boardNum}&replyNum=${reply.replyNum}">수정</a>   |   <a href="">삭제</a>
+						<a href="/modify.do?boardNum=${data.boardNum}&replyNum=${reply.replyNum}">수정</a>   |   <a href="/replyDelete.do?replyNum=${reply.replyNum}">삭제</a>
 					</div>
 					
 					<hr />

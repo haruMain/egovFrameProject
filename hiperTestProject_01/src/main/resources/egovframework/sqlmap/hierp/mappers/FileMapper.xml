@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FileMapper">
+	<resultMap type="fileVO" id="fileInfo">
+		<result column="file_num" property="fileNum"/>
+		<result column="file_name" property="fileName"/>
+		<result column="file_rei_date" property="fileReiDate"/>
+		<result column="file_uuid" property="fileUuid"/>
+		<result column="board_num" property="boardNum"/>
+	</resultMap>
+	<insert id="insert">
+		INSERT INTO pej_file
+		(file_name, file_rei_date, file_uuid, board_num)
+		VALUES(#{fileName}, #{fileReiDate}, #{fileUuid}, #{boardNum})
+	</insert>
+	
+	<delete id="delete">
+		delete from pej_file
+		where board_num = #{boardNum}
+	</delete>
+	
+	<select id="selectAll" resultMap="fileInfo">
+		SELECT file_num, file_name, file_rei_date, file_uuid, board_num
+		FROM pej_file
+		where board_num = #{boardNum}
+	</select>
+	
+</mapper>

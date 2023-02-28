@@ -30,13 +30,9 @@ public class ReplyDAO extends EgovAbstractMapper {
 		sqlSessionTemplate.update("ReplyMapper.update",replyVO);
 	}
 //	삭제
-	public void remove(Long replyNum) {
-		sqlSessionTemplate.delete("ReplyMapper.delete", replyNum);
+	public void remove(ReplyVO replyVO) throws Exception {
+		sqlSessionTemplate.delete("ReplyMapper.delete", replyVO);
 	}
-//	조회
-//	public ReplyVO findById(Long replyNum) {
-//		return selectOne("ReplyMapper.select",replyNum);
-//	}
 	
 //	전체조회
 	public List<ReplyVO> findAll(Long boardNum) throws Exception {

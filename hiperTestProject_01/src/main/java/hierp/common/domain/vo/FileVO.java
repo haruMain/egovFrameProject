@@ -1,15 +1,16 @@
 package hierp.common.domain.vo;
 
 public class FileVO {
-	private int fileNum;
+	private Long fileNum;
 	private String fileName;
 	private String fileReiDate;
 	private String fileUuid;
-	private int boardNum;
-	public int getFileNum() {
+	private Long boardNum;
+	
+	public Long getFileNum() {
 		return fileNum;
 	}
-	public void setFileNum(int fileNum) {
+	public void setFileNum(Long fileNum) {
 		this.fileNum = fileNum;
 	}
 	public String getFileName() {
@@ -30,10 +31,10 @@ public class FileVO {
 	public void setFileUuid(String fileUuid) {
 		this.fileUuid = fileUuid;
 	}
-	public int getBoardNum() {
+	public Long getBoardNum() {
 		return boardNum;
 	}
-	public void setBoardNum(int boardNum) {
+	public void setBoardNum(Long boardNum) {
 		this.boardNum = boardNum;
 	}
 	@Override
