@@ -24,14 +24,14 @@
 			<form method="post" action="/modify.do">
 			<p>
 				<label>댓글 작성자</label> 
-				<input type="text" name="replyWriter" value="${reply.replyWriter }" readonly/>
+				<input type="text" name="replyWriter" value="${reply.replyWriter}" readonly="readonly"/>
 			</p>
 			<p>
 				<textarea rows="5" cols="30" name="replyCon">${reply.replyCon }</textarea>
 			</p>
 			<p>
-				<input type="hidden" name="boardNum" value="${data.boardNum}">
-				<input type="hidden" name="replyNum" value="${data.replyNum}">
+				<input type="hidden" name="boardNum" value="${reply.boardNum}">
+				<input type="hidden" name="replyNum" value="${reply.replyNum}">
 				<button type="submit">댓글 수정</button>
 			</p>
 			</form>

@@ -22,8 +22,8 @@ public class ReplyServiceImpl implements ReplyService {
 
 //	수정
 	@Override
-	public void modify(ReplyVO replyVO) {
-		replyDAO.setBoardVO(replyVO);
+	public void modify(ReplyVO replyVO) throws Exception {
+		replyDAO.modify(replyVO);
 	}
 
 //	삭제
@@ -46,7 +46,7 @@ public class ReplyServiceImpl implements ReplyService {
 
 //	댓글 단일 조회
 	@Override
-	public ReplyVO show(ReplyVO replyVO) {
+	public ReplyVO show(ReplyVO replyVO) throws Exception {
 		return replyDAO.replySelect(replyVO);
 	}
 	

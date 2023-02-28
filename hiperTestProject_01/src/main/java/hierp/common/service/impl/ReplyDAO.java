@@ -26,7 +26,7 @@ public class ReplyDAO extends EgovAbstractMapper {
 		sqlSessionTemplate.insert("ReplyMapper.insert",replyVO);
 	}
 //	수정
-	public void setBoardVO(ReplyVO replyVO) {
+	public void modify(ReplyVO replyVO) {
 		sqlSessionTemplate.update("ReplyMapper.update",replyVO);
 	}
 //	삭제
@@ -44,7 +44,7 @@ public class ReplyDAO extends EgovAbstractMapper {
 	}
 
 //	단일 조회
-	public ReplyVO replySelect(ReplyVO replyVO) {
+	public ReplyVO replySelect(ReplyVO replyVO) throws Exception {
 		return sqlSessionTemplate.selectOne("ReplyMapper.selectOne", replyVO);
 	}
 

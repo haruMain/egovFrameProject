@@ -9,7 +9,7 @@ public interface ReplyService {
 //  추가
   public void register(ReplyVO replyVO);
 //  수정
-  public void modify(ReplyVO replyVO);
+  public void modify(ReplyVO replyVO) throws Exception;
 //  삭제
   public void remove(Long replyNum);
 //  조회
@@ -17,5 +17,5 @@ public interface ReplyService {
 //	전체조회
 	public List<ReplyVO> showAll(Long boardNum) throws Exception;
 //	댓글 단일 조회
-	public ReplyVO show(ReplyVO replyVO);
+	public ReplyVO show(ReplyVO replyVO) throws Exception;
 }

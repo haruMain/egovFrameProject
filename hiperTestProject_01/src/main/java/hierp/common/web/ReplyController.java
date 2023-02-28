@@ -26,7 +26,7 @@ public class ReplyController {
 	
 //	 댓글 단일 조회 (수정 페이지)
 	@RequestMapping(value = "/modify.do", method = RequestMethod.GET)
-	public String getMofidy(@RequestParam("boardNum") Long boardNum, @RequestParam("replyNum") Long replyNum, Model model) {
+	public String getMofidy(@RequestParam("boardNum") Long boardNum, @RequestParam("replyNum") Long replyNum, Model model) throws Exception {
 		
 		ReplyVO replyVO = new ReplyVO();
 		replyVO.setBoardNum(boardNum);
@@ -35,12 +35,12 @@ public class ReplyController {
 		ReplyVO reply = replyService.show(replyVO);
 			 
 		model.addAttribute("reply", reply);
-		return "modify";
+		return "/reply/modify";
 	}
 	
 //	댓글 수정
 	@RequestMapping(value = "/modify.do", method = RequestMethod.POST)
-	public String postModify(ReplyVO replyVO) {
+	public String postModify(ReplyVO replyVO, Model model) throws Exception {
 		replyService.modify(replyVO);
 		return "redirect:/detail.do?boardNum=" + replyVO.getBoardNum();
 	}

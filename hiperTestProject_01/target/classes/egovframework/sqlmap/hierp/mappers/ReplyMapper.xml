@@ -30,8 +30,8 @@
 	</delete>
 	
 	<!-- 댓글 단일 조회 -->
-	<select id="selectOne" resultType="replyVO">
-		SELECT reply_num, board_num, reply_con, reply_writer, reply_rei_date
+	<select id="selectOne" resultType="replyVO" parameterType="replyVO">
+		SELECT reply_num as replyNum, board_num as boardNum, reply_con as replyCon, reply_writer as replyWriter, reply_rei_date as replyReiDate
 		FROM pej_reply
 		where board_num = #{boardNum}
 		and reply_num = #{replyNum}
