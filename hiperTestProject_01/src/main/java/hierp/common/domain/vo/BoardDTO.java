@@ -74,6 +74,7 @@ public class BoardDTO {
 				+ ", boardReiDate=" + boardReiDate + ", boardUpDate=" + boardUpDate + ", userNum=" + userNum
 				+ ", files=" + files + "]";
 	}
+	
 	public void create(String boardTit, String boardCon) {
         this.boardTit = boardTit;
         this.boardCon = boardCon;
@@ -85,7 +86,12 @@ public class BoardDTO {
 	        this.files = files;
 	    }
 
-	public void create(BoardVO findById) {
+	public void create(BoardVO boardVO) {
+		this.boardNum = boardVO.getBoardNum();
+		this.boardTit = boardVO.getBoardTit();
+		this.boardCon = boardVO.getBoardCon();
+		this.boardReiDate = boardVO.getBoardReiDate();
+		this.boardUpDate = boardVO.getBoardUpDate();
 		
 	}
 	

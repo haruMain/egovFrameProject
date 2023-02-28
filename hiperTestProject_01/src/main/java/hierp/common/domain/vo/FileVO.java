@@ -43,4 +43,10 @@ public class FileVO {
 				+ fileUuid + ", boardNum=" + boardNum + "]";
 	}
 	
+	public void create(String fileName, String fileReiDate, String fileUuid) {
+		this.fileName = fileName;
+		this.fileReiDate = fileReiDate;
+		this.fileUuid = fileUuid;
+	}
+	
 }

@@ -21,9 +21,9 @@
 		<div class="job_wrap">			
 			<h2>공지사항</h2>
 		    <div class="f_none">  
-		    <a href="<c:url value='create.do'/>" class="button">  
+		    <a href="<c:url value='list.do'/>" class="button">  
 				<button class="btn_search f_right mtb_10">
-					글 등록
+					목록
 				</button>	
 				</a>
 			</div>	
@@ -62,8 +62,7 @@
 						</a>
 						<input type="submit" class="button" value="삭제" />
 					</div>
-				</div>
-				</div>	
+					
 			</form>		
 		</div>
                     	 

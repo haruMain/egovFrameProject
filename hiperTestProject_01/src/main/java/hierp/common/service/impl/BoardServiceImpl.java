@@ -18,7 +18,7 @@ public class BoardServiceImpl implements BoardService {
 	@Resource(name="BoardDAO")
 	private BoardDAO boardDAO;
 	
-	@Resource(name="fileDAO")
+	@Resource(name="FileDAO")
 	private FileDAO fileDAO;
 
 //	추가
