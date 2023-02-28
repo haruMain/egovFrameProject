@@ -33,11 +33,11 @@ public class BoardController {
 	}
 	
 //	게시글 등록
-	@RequestMapping(value = "/create.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/create.do", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
 	public String getCreate() throws Exception{
 		return "create";
 	}
-	@RequestMapping(value = "/create.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/create.do", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	public String postCreate(BoardDTO boardDTO) throws Exception {
 		boardService.register(boardDTO);
 		return "redirect:list.do";

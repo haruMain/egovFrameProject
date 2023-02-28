@@ -9,6 +9,7 @@ public class BoardDTO {
 	private String boardReiDate;
 	private String boardUpDate;
 	private Long userNum;
+	private String userId;
 	
 	private List<FileVO> files;
 
@@ -67,14 +68,23 @@ public class BoardDTO {
 	public void setFiles(List<FileVO> files) {
 		this.files = files;
 	}
+	
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 	@Override
 	public String toString() {
 		return "BoardDTO [boardNum=" + boardNum + ", boardTit=" + boardTit + ", boardCon=" + boardCon
 				+ ", boardReiDate=" + boardReiDate + ", boardUpDate=" + boardUpDate + ", userNum=" + userNum
-				+ ", files=" + files + "]";
+				+ ", userId=" + userId + ", files=" + files + "]";
 	}
-	
+
 	public void create(String boardTit, String boardCon) {
         this.boardTit = boardTit;
         this.boardCon = boardCon;
@@ -92,8 +102,7 @@ public class BoardDTO {
 		this.boardCon = boardVO.getBoardCon();
 		this.boardReiDate = boardVO.getBoardReiDate();
 		this.boardUpDate = boardVO.getBoardUpDate();
-		
-	}
+    	}
 	
 	
 	

@@ -40,6 +40,7 @@
 				 <textarea type="text" name="boardCon"></textarea>
 				</div>
 				<button class="f_right mtb_10 btn_one btn_two" onclick="javascript:fn_goBbsNtc();">등록</button>
+				<div class="fileBox">
 				<div class="field">
 				    <input type="file" name="upload" multiple>
 				    <!-- mutiple : 여러개의 첨부파일을 동시에 업로드 할 수 있다. -->
@@ -49,6 +50,10 @@
 				        <ul></ul>
 					</div>
 				</div>	
+				</div>
 			</form>		
 		</div>
 	</body>
+	<script src="/js/jquery.min.js"></script>
+	
+	</html>
