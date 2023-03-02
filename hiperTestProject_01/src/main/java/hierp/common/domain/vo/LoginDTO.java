@@ -1,7 +1,9 @@
 package hierp.common.domain.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class LoginDTO {
-	
 	private String userId;
 	private String userPass;
 	private boolean userCookie;

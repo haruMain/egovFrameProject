@@ -10,6 +10,13 @@
 		VALUES(#{userId}, #{userPass}, #{userName})
 	</insert>
 
+	<!-- 로그인 처리 -->
+	<select id="login" resultType="userVO">
+		select user_id, user_pass
+		from pej_user
+		where user_id = #{userId} and user_pass = #{userPass}
+	</select>
+	
 	<!-- 수정 -->
     <update id="update">
         UPDATE pej_user
@@ -34,11 +41,5 @@
 	from pej_user 
 	</select>
 	
-	<!-- 로그인 처리 -->
-	<select id="login" resultType="userVO">
-		select * 
-		from pej_user
-		where user_id = #{userId} and user_pass = #{userPass}
-	</select>
 	
 </mapper>

@@ -5,7 +5,6 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 
 @Component
 public class UserVO {
-	@NotNull
 	private String userId;
 	private String userPass;
 	private String userName;

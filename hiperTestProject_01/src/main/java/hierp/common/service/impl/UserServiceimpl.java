@@ -19,7 +19,7 @@ public class UserServiceimpl implements UserService {
 
 //	회원가입
 	@Override
-	public void register(UserVO userVO) {
+	public void register(UserVO userVO) throws Exception {
 		userDAO.save(userVO);
 	}
 	
@@ -40,15 +40,24 @@ public class UserServiceimpl implements UserService {
 //	public String login(LoginDTO loginDTO) {
 //		return userDAO.login(loginDTO);
 //	}
+//	@Override
+//	public UserVO login(UserVO userVO) throws Exception {
+//		return userDAO.login(userVO);
+//	}
 	@Override
-	public String login(LoginDTO loginDTO, HttpSession httpSession) {
-		String name = userDAO.login(loginDTO);
-		 if (name != null) { // 세션 변수 저장
-		  httpSession.setAttribute("userId", loginDTO.getUserId());
-		  httpSession.setAttribute("userName", name);
-		}
-		 return name;
+	public LoginDTO login(LoginDTO loginDTO) throws Exception {
+		return userDAO.login(loginDTO);
 	}
+	
+//	@Override
+//	public LoginDTO login(LoginDTO loginDTO, HttpSession httpSession) throws Exception {
+//		UserVO name = userDAO.login(loginDTO);
+//		if (name != null) { // 세션 변수 저장
+//			httpSession.setAttribute("userId", loginDTO.getUserId());
+//			httpSession.setAttribute("userName", name);
+//		}
+//		return name;
+//	}
 	
 
 //	로그아웃
@@ -56,5 +65,7 @@ public class UserServiceimpl implements UserService {
 	public void logout(HttpSession httpSession) {
 		httpSession.invalidate();
 	}
+
+
 	
 }

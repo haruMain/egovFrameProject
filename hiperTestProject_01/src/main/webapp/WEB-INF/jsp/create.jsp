@@ -16,6 +16,12 @@
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/board.css" />
 		<link rel="stylesheet" type="text/css" href="css/detail.css" />
+		<style>
+		.uploadResult ul li {
+			list-style: none;
+		}
+		
+		</style>
 		
 	</head>
 	<body>
@@ -27,7 +33,7 @@
 				</a>
 			</div>	
 			
-			<form class="center" method="post" accept-charset="UTF-8">
+			<form class="center" method="post" accept-charset="UTF-8" id="registForm" enctype="multipart/form-data">
 			<div id="" class="board_view">				
 				<div class="board_row">
 					<div class="board_left_title">제목</div>
@@ -40,20 +46,46 @@
 				 <textarea type="text" name="boardCon"></textarea>
 				</div>
 				<button class="f_right mtb_10 btn_one btn_two" onclick="javascript:fn_goBbsNtc();">등록</button>
+				
+				
 				<div class="fileBox">
-				<div class="field">
-				    <input type="file" name="upload" multiple>
+				<div class="field" id="file-list">
 				    <!-- mutiple : 여러개의 첨부파일을 동시에 업로드 할 수 있다. -->
+				    <input type="file" name="multipartFiles" multiple>
+				    <div class="file-group">
+            		<input type="file" name="file"><a href='#this' name='file-delete'>삭제</a>
+        			</div>
 				</div>
-				<div class="field">
+				<!-- <div class="field">
 				    <div class="uploadResult">
 				        <ul></ul>
 					</div>
-				</div>	
+				</div>	 -->
+				</div>
 				</div>
 			</form>		
 		</div>
 	</body>
-	<script src="/js/jquery.min.js"></script>
-	
+	<script type="text/javascript">
+	$(document).ready(function() {
+        $("a[name='file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+    })
+ 
+    function addFile() {
+        var str = "<div class='file-group'><input type='file' name='file'><a href='#this' name='file-delete'>삭제</a></div>";
+        $("#file-list").append(str);
+        $("a[name='file-delete']").on("click", function(e) {
+            e.preventDefault();
+            deleteFile($(this));
+        });
+    }
+ 
+    function deleteFile(obj) {
+        obj.parent().remove();
+    }
+	</script>
+	 
 	</html>

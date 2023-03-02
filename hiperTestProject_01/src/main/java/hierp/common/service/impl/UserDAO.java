@@ -24,10 +24,17 @@ public class UserDAO extends EgovAbstractMapper {
 	}
 	
 //	회원가입
-	public void save(UserVO userVO) {
+	public void save(UserVO userVO) throws Exception {
 		sqlSessionTemplate.insert("UserMapper.insert",userVO);
 	}
+//	로그인 처리
+	public LoginDTO login(LoginDTO loginDTO) throws Exception {
+		return selectOne("UserMapper.login", loginDTO);
+	}
 	
+//	public UserVO login(UserVO userVO) throws Exception {
+//		return selectOne("UserMapper.login", userVO);
+//	}
 //	조회
 	public UserVO findById(String userId) {
 		return (UserVO) selectList("UserMapper.select",userId);
@@ -38,8 +45,4 @@ public class UserDAO extends EgovAbstractMapper {
 		return selectList("UserMapper.selectAll");
 	}
 	
-//	로그인 처리
-	public String login(LoginDTO loginDTO) {
-		return selectOne("UserMapper.login", loginDTO);
-	}
 }

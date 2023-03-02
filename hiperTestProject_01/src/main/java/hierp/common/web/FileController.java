@@ -30,7 +30,7 @@ public class FileController {
 	Logger logger = Logger.getLogger(Log4jTest.class.getName());
 
 	@PostMapping(value="/fileUpload.do", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
+	@ResponseBody    //컨트롤러 안에서 REST를 쓸 떄 어노테이션
 	public ResponseEntity<List<FileVO>> upload(MultipartFile[] multipartFiles) {
 		List<FileVO> files=new ArrayList<FileVO>();
 		String uplodaDirectory = "C://upload";
@@ -38,7 +38,7 @@ public class FileController {
 		
 		File uploadPath = new File(uplodaDirectory, uploadDatePath);
 		
-		if(uploadPath.exists()) {
+		if(!uploadPath.exists()) {
 			uploadPath.mkdirs();
 		}
 		for(MultipartFile multipartFile : multipartFiles ) {
