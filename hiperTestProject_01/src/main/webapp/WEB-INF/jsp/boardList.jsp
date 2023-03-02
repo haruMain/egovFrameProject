@@ -42,9 +42,9 @@
 			</h3>
 			</div>
 			<h3>
-			<c:if test="${user != null}">
+			<%-- <c:if test="${user != null}">
 				<p>${user.userId}님 안녕하세요.</p>
-			</c:if>
+			</c:if> --%>
 			</h3>
 				<label for="search_s" class="sr-only">검색구분</label>
 				<select class="w_160 mr_9" id="search_s">

@@ -176,7 +176,7 @@ if(userPass==""){
   return;
 }
 //폼 내부의 데이터를 전송할 주소
- document.form1.action= "${path}/user/login_check.do";
+ document.form1.action= "${path}/login_check.do";
  document.form1.submit(); //제출
  });
 });
