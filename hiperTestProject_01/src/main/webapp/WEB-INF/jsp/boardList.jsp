@@ -20,6 +20,18 @@
 		
 	</head>
 	<body>
+	<header>
+	<ul>
+	<c:choose>
+		<c:when test="${not empty member}">
+			<li><a href="../member/logout">로그아웃</a></li>
+		</c:when>
+		<c:otherwise>
+			<li><a href="/user/login.do">로그인</a></li>
+		</c:otherwise>
+	</c:choose>
+		</ul>	
+	</header>
 		<div class="job_wrap" id="container">
 			<h2>공지사항</h2>
 			

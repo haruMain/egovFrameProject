@@ -11,11 +11,22 @@
 	</insert>
 
 	<!-- 로그인 처리 -->
-	<select id="login" resultType="userVO">
+	<select id="login" resultType="String">
+		select user_name
+		from pej_user 
+		where user_id = #{userId} and user_pass=#{userPass}
+	</select>
+	
+	<!-- <select id="login" resultType="string" parameterType="map">
 		select user_id, user_pass
 		from pej_user
 		where user_id = #{userId} and user_pass = #{userPass}
-	</select>
+	</select>  -->
+	<!-- <select id="login" resultType="userVO">
+		select user_id, user_pass
+		from pej_user
+		where user_id = #{userId} and user_pass = #{userPass}
+	</select> -->
 	
 	<!-- 수정 -->
     <update id="update">

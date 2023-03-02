@@ -5,6 +5,8 @@
 	 <settings>
         <setting name="cacheEnabled" value="false" />
         <setting name="jdbcTypeForNull" value="NULL" />
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        
     </settings>
     
     <typeAliases>

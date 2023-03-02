@@ -1,5 +1,6 @@
 package hierp.common.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -28,9 +29,20 @@ public class UserDAO extends EgovAbstractMapper {
 		sqlSessionTemplate.insert("UserMapper.insert",userVO);
 	}
 //	로그인 처리
-	public LoginDTO login(LoginDTO loginDTO) throws Exception {
-		return selectOne("UserMapper.login", loginDTO);
+	public String login(UserVO userVO) throws Exception {
+		return sqlSessionTemplate.selectOne("UserMapper.login",userVO);
 	}
+	
+//	public String login(String userId, String userPass) {
+//		HashMap<String, String> loginMap = new HashMap<String, String>();
+//		loginMap.put("userId", userId);
+//		loginMap.put("userPass", userPass);
+//		return sqlSessionTemplate.selectOne("user.login", loginMap);
+//	}
+	
+//	public LoginDTO login(LoginDTO loginDTO) throws Exception {
+//		return selectOne("UserMapper.login", loginDTO);
+//	}
 	
 //	public UserVO login(UserVO userVO) throws Exception {
 //		return selectOne("UserMapper.login", userVO);

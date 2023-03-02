@@ -36,6 +36,8 @@ public class UserServiceimpl implements UserService {
 	}
 
 //	로그인 처리
+	
+	
 //	@Override
 //	public String login(LoginDTO loginDTO) {
 //		return userDAO.login(loginDTO);
@@ -44,10 +46,10 @@ public class UserServiceimpl implements UserService {
 //	public UserVO login(UserVO userVO) throws Exception {
 //		return userDAO.login(userVO);
 //	}
-	@Override
-	public LoginDTO login(LoginDTO loginDTO) throws Exception {
-		return userDAO.login(loginDTO);
-	}
+//	@Override
+//	public LoginDTO login(LoginDTO loginDTO) throws Exception {
+//		return userDAO.login(loginDTO);
+//	}
 	
 //	@Override
 //	public LoginDTO login(LoginDTO loginDTO, HttpSession httpSession) throws Exception {
@@ -60,12 +62,28 @@ public class UserServiceimpl implements UserService {
 //	}
 	
 
+
+
+//	로그인
+	@Override
+	public String getSelectOne(UserVO userVO, HttpSession session) throws Exception {
+		String userName = userDAO.login(userVO);
+		 if (userName != null) { // 세션 변수 저장
+		  session.setAttribute("userid", userVO.getUserId());
+		  session.setAttribute("userName", userName);
+		}
+		return userName;
+	}
+//	@Override
+//	public String login(String userId, String userPass) {
+//		return userDAO.login(userId, userPass);
+//	}
+
 //	로그아웃
 	@Override
 	public void logout(HttpSession httpSession) {
 		httpSession.invalidate();
 	}
-
 
 	
 }
