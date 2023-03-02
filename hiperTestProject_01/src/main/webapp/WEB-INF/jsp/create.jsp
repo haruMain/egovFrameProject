@@ -27,7 +27,7 @@
 				</a>
 			</div>	
 			
-			<form class="center" method="post">
+			<form class="center" method="post" accept-charset="UTF-8">
 			<div id="" class="board_view">				
 				<div class="board_row">
 					<div class="board_left_title">제목</div>

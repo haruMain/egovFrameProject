@@ -6,7 +6,7 @@ public class FileVO {
 	private String fileReiDate;
 	private String fileUuid;
 	private Long boardNum;
-	private String fileUpPath;
+	private String fileUploadPath;
 	private boolean fileImageCheck;
 	private Long fileSize;
 	
@@ -40,11 +40,11 @@ public class FileVO {
 	public void setBoardNum(Long boardNum) {
 		this.boardNum = boardNum;
 	}
-	public String getFileUpPath() {
-		return fileUpPath;
+	public String getFileUploadPath() {
+		return fileUploadPath;
 	}
-	public void setFileUpPath(String fileUpPath) {
-		this.fileUpPath = fileUpPath;
+	public void setFileUploadPath(String fileUploadPath) {
+		this.fileUploadPath = fileUploadPath;
 	}
 	public boolean isFileImageCheck() {
 		return fileImageCheck;
@@ -61,7 +61,7 @@ public class FileVO {
 	@Override
 	public String toString() {
 		return "FileVO [fileNum=" + fileNum + ", fileName=" + fileName + ", fileReiDate=" + fileReiDate + ", fileUuid="
-				+ fileUuid + ", boardNum=" + boardNum + ", fileUpPath=" + fileUpPath + ", fileImageCheck="
+				+ fileUuid + ", boardNum=" + boardNum + ", fileUploadPath=" + fileUploadPath + ", fileImageCheck="
 				+ fileImageCheck + ", fileSize=" + fileSize + "]";
 	}
 	public void create(String fileName, String fileReiDate, String fileUuid) {

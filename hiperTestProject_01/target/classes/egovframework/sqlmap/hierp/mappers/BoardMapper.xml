@@ -8,14 +8,29 @@
 		<result column="user_id" property="userId"></result>
 		<result column="user_pass" property="userPass"></result>
 	</resultMap>
-	 -->
+	 -->  
 	<!-- 추가 -->
-	<insert id="insert">
-		INSERT INTO pej_board(board_tit, board_con, board_rei_date)
-		VALUES(#{boardTit}, #{boardCon}, now())
+	<!-- <insert id="insert">
+		INSERT INTO pej_board(board_num, board_tit, board_con, board_rei_date)
+		VALUES(nextval(user_seq), #{boardTit}, #{boardCon}, now())
+	</insert> --> 
+	<!-- <insert id="insert">
+		<selectKey keyProperty="boardNum" resultType="Long" order="BEFORE">
+		select nextval(user_seq) from dual
+		</selectKey>
+		INSERT INTO pej_board(board_num, board_tit, board_con, board_rei_date)
+		VALUES(#{boardNum}, #{boardTit}, #{boardCon}, now())
+	</insert> -->
+	
+	<insert id="insert" parameterType="boardVO">
+		<selectKey keyProperty="boardNum" resultType="Long" order="BEFORE">
+			select nextval(user_seq) from dual
+		</selectKey>
+		INSERT INTO pej_board(board_num, board_tit, board_con, board_rei_date)
+		VALUES(#{boardNum}, #{boardTit}, #{boardCon}, now())
 	</insert>
 
-	<!-- 수정 -->
+	<!-- 수정 --> 
 	<update id="update">
 		UPDATE pej_board
 		SET board_tit= #{boardTit}, board_con= #{boardCon}, board_up_date= now()
