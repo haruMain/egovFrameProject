@@ -40,7 +40,6 @@ public class UserController {
 //	로그인 처리
 	@RequestMapping(value = "/login_check.do", method = RequestMethod.POST)
 	 public String login(UserVO userVO, RedirectAttributes redirect, HttpServletRequest request, HttpSession session) throws Exception {
-		 System.out.println("login() controller 들어옴");
 		 String result = userService.getSelectOne(userVO, session);
 		 if(result !=null) {
 			 HttpSession sesstion = request.getSession();

@@ -22,14 +22,14 @@
 	<body>
 	<header>
 	<ul>
-	<c:choose>
+	<%-- <c:choose>
 		<c:when test="${not empty member}">
 			<li><a href="../member/logout">로그아웃</a></li>
 		</c:when>
 		<c:otherwise>
 			<li><a href="/user/login.do">로그인</a></li>
 		</c:otherwise>
-	</c:choose>
+	</c:choose> --%>
 		</ul>	
 	</header>
 		<div class="job_wrap" id="container">
@@ -37,13 +37,18 @@
 			
 			<div class="search_box">
 			<div class="register">
+			<c:if test="${!empty sessionScope.user}">
 			<h3 class="rei_btn">
 			<a href="<c:url value='create.do'/>" class="button">글 등록</a> 
 			</h3>
+			</c:if>
+			<%-- <h3>
+			<c:out value="${result.userId }"></c:out>
+			</h3> --%>
 			</div>
 			<h3>
 			<%-- <c:if test="${user != null}">
-				<p>${user.userId}님 안녕하세요.</p>
+				<p>${user.userId}</p>
 			</c:if> --%>
 			</h3>
 				<label for="search_s" class="sr-only">검색구분</label>
