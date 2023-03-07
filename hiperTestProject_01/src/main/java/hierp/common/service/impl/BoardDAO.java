@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import egovframework.rte.psl.dataaccess.EgovAbstractMapper;
 import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
+import hierp.common.domain.vo.Criteria;
 
 @Repository("BoardDAO")
 public class BoardDAO extends EgovAbstractMapper {
@@ -38,7 +39,12 @@ public class BoardDAO extends EgovAbstractMapper {
 		return selectOne("BoardMapper.select",boardNum);
 	}
 //	전체조회
-	public List<BoardVO> findAll() {
+	public List<BoardVO> findAll(Criteria criteria) {
 		return selectList("BoardMapper.selectAll");
+	}
+//	전체갯수
+	public int findCounAll() {
+		sqlSessionTemplate.selectOne("BoardMapper.getTotal");
+		return 0;
 	}
 }

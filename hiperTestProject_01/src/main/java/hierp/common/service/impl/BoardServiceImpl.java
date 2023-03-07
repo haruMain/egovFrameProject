@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
+import hierp.common.domain.vo.Criteria;
 import hierp.common.domain.vo.FileVO;
 import hierp.common.service.BoardService;
 
@@ -62,7 +63,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 //	전체조회
 	@Override
-	public List<BoardVO> showAll() {
-		return boardDAO.findAll();
+	public List<BoardVO> showAll(Criteria criteria) {
+		return boardDAO.findAll(criteria);
+	}
+	
+//	전체개수
+	public int getTotal() {
+		return boardDAO.findCounAll();
 	}
 }

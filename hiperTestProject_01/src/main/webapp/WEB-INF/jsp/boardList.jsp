@@ -78,11 +78,13 @@
 						<td><c:out value="${board.boardTit}"></c:out></td>
 						<td><a href="${path}/detail.do?boardNum=${board.boardNum }">${board.boardCon}</a></td>       
 						<td><c:out value="${board.boardReiDate}"></c:out></td>
-						<td><c:out value="${board.userNum}"></c:out></td>
+						<td><c:out value="${board.userId}"></c:out></td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
+			
+			
 
 			<div class="num">
 				<span><img src="images/num_left_02.png"></span><span><img src="images/num_left.png"></span>

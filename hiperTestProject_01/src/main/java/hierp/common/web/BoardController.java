@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
+import hierp.common.domain.vo.Criteria;
 import hierp.common.domain.vo.ReplyVO;
 import hierp.common.service.BoardService;
 import hierp.common.service.ReplyService;
@@ -26,8 +27,11 @@ public class BoardController {
 	
 //	게시글 목록
 	@RequestMapping(value = "/list.do")
-	public String boardList(Model model) {
-		List<BoardVO> board = boardService.showAll(); 
+	public String boardList(Model model, Criteria criteria) {
+		/*
+		 * if(criteria.getPage() ==0){ criteria.create(1,10); }
+		 */
+		List<BoardVO> board = boardService.showAll(criteria); 
 		model.addAttribute("boards", board);
 		return "boardList";
 	}

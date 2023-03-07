@@ -4,6 +4,7 @@ import java.util.List;
 
 import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
+import hierp.common.domain.vo.Criteria;
 
 public interface BoardService {
 
@@ -16,5 +17,5 @@ public interface BoardService {
 //    조회
   public BoardDTO show(Long boardNum);
 //	전체조회
-  public List<BoardVO> showAll();
+  public List<BoardVO> showAll(Criteria criteria);
 }

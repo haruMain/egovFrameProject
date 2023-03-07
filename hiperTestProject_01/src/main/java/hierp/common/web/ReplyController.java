@@ -45,8 +45,8 @@ public class ReplyController {
 	
 //	댓글 삭제
 	@RequestMapping(value = "/replyDelete.do", method = RequestMethod.GET)
-	public String replyDelete(@RequestParam("replyNum") ReplyVO replyVO) throws Exception {
-		replyService.remove(replyVO);
+	public String replyDelete(@RequestParam("replyNum") Long replyNum, ReplyVO replyVO) throws Exception {
+		replyService.remove(replyNum);
 		return "redirect:detail.do?boardNum=" + replyVO.getBoardNum();
 	}
 	

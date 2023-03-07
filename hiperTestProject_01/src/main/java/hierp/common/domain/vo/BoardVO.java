@@ -6,7 +6,7 @@ public class BoardVO {
 	private String boardCon;
 	private String boardReiDate;
 	private String boardUpDate;
-	private Long userNum;
+	private Long userId;
 	
 	public Long getBoardNum() {
 		return boardNum;
@@ -39,17 +39,17 @@ public class BoardVO {
 		this.boardUpDate = boardUpDate;
 	}
 	
-	public Long getUserNum() {
-		return userNum;
-	}
-	public void setUserNum(Long userNum) {
-		this.userNum = userNum;
-	}
 	
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 	@Override
 	public String toString() {
 		return "BoardVO [boardNum=" + boardNum + ", boardTit=" + boardTit + ", boardCon=" + boardCon + ", boardReiDate="
-				+ boardReiDate + ", boardUpDate=" + boardUpDate + ", userNum=" + userNum + "]";
+				+ boardReiDate + ", boardUpDate=" + boardUpDate + ", userId=" + userId + "]";
 	}
 	public void create(String boardTit, String boardCon) {
         this.boardTit = boardTit;

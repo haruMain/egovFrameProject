@@ -35,6 +35,7 @@
 	 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	    <property name="maxUploadSize" value="100000000" />
 		<property name="maxInMemorySize" value="100000000" />
+		 <property name="defaultEncoding" value="utf-8" />
 	</bean>
 	<!-- 파일 업로스 디렉토리 설정 -->
 	<bean id="uploadPath" class="java.lang.String">

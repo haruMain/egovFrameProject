@@ -15,6 +15,24 @@
     .loginForm {
     margin: 0 auto;
     }
+    form {
+    margin: 0 auto;
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+	}
+	table {
+    text-align: center;
+	}
+	input#userId {
+    height: 30px;
+    font-size: 20px;
+	}
+	input#userPass {
+    height: 30px;
+    font-size: 20px;
+	}
     
     </style>
 </head>
