@@ -27,11 +27,11 @@ public class BoardController {
 	
 //	게시글 목록
 	@RequestMapping(value = "/list.do")
-	public String boardList(Model model, Criteria criteria) {
+	public String boardList(Model model) {
 		/*
 		 * if(criteria.getPage() ==0){ criteria.create(1,10); }
 		 */
-		List<BoardVO> board = boardService.showAll(criteria); 
+		List<BoardVO> board = boardService.showAll(); 
 		model.addAttribute("boards", board);
 		return "boardList";
 	}
@@ -79,6 +79,14 @@ public class BoardController {
 	public String remove(Long boardNum) {
 		boardService.remove(boardNum);
 		return "redirect:list.do";
+	}
+//  게시물 목록 + 페이징 추가
+	@RequestMapping(value = "/listpage.do", method = RequestMethod.GET)
+	public void getListPage(Model model) throws Exception {
+	  
+	 List<BoardVO> list = null; 
+	 list = boardService.showAll();
+	 model.addAttribute("list", list);   
 	}
 }
 

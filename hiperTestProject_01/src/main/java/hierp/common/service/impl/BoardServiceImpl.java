@@ -27,26 +27,21 @@ public class BoardServiceImpl implements BoardService {
 	public void register(BoardDTO boardDTO) {
 		boardDAO.save(boardDTO);
 		List<FileVO> files = boardDTO.getFiles();
-        Optional.ofNullable(files).ifPresent(fileList -> {
-            fileList.forEach(file -> {
-                file.setBoardNum(boardDTO.getBoardNum());
-                fileDAO.save(file);
-            });
-        });
+		 Optional.ofNullable(files).ifPresent(fileList -> {
+	            fileList.forEach(file -> {
+	                file.setBoardNum(boardDTO.getBoardNum());
+	                fileDAO.save(file);
+	            });
+	        });
 	}
+	
 //	수정
 	@Override
 	public void modify(BoardDTO boardDTO) {
 		boardDAO.setBoardVO(boardDTO);
-		fileDAO.remove(boardDTO.getBoardNum());
-        List<FileVO> files = boardDTO.getFiles();
-        Optional.ofNullable(files).ifPresent(fileList -> {
-            fileList.forEach(file -> {
-                file.setBoardNum(boardDTO.getBoardNum());
-                fileDAO.save(file);
-            });
-        });
+//		fileDAO.update(boardDTO);
 	}
+	
 //	삭제
 	@Override
 	public void remove(Long boardNum) {
@@ -63,12 +58,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 //	전체조회
 	@Override
-	public List<BoardVO> showAll(Criteria criteria) {
-		return boardDAO.findAll(criteria);
+	public List<BoardVO> showAll() {
+		return boardDAO.findAll();
 	}
 	
 //	전체개수
 	public int getTotal() {
 		return boardDAO.findCounAll();
 	}
+
 }

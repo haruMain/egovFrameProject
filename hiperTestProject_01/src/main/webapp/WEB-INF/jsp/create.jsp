@@ -48,13 +48,13 @@
 				<button class="f_right mtb_10 btn_one btn_two" onclick="javascript:fn_goBbsNtc();">등록</button>
 				
 				<!-- 첨부파일 -->
-				<div class="fileBox">
-				<div class="field" id="file-list">
+				<div class="row">
+				<div class="panel-body" id="file-list">
 				    <input type="file" name="uploadFile" multiple>
-				    
-				    <!-- <div class="file-group">
-            		<input type="file" name="file"><a href='#this' name='file-delete'>삭제</a>
-        			</div> -->
+				</div>
+				<div class="uploadResult">
+					<ul>
+					</ul>
 				</div>
 				</div>
 				</div>
