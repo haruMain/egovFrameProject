@@ -308,6 +308,13 @@
     		<version>0.4.8</version>
 		</dependency>
 		
+		<!-- <dependency>
+			<groupId>com.example</groupId>
+				<artifactId>Sts02</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			<packaging>war</packaging> 
+		</dependency> -->
+		
 	</dependencies>
 
 	<build>

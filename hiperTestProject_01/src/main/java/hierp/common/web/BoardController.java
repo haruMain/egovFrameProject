@@ -1,6 +1,7 @@
 package hierp.common.web;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
 import hierp.common.domain.vo.Criteria;
+import hierp.common.domain.vo.PageMaker;
 import hierp.common.domain.vo.ReplyVO;
 import hierp.common.service.BoardService;
 import hierp.common.service.ReplyService;
@@ -27,12 +29,15 @@ public class BoardController {
 	
 //	게시글 목록
 	@RequestMapping(value = "/list.do")
-	public String boardList(Model model) {
-		/*
-		 * if(criteria.getPage() ==0){ criteria.create(1,10); }
-		 */
-		List<BoardVO> board = boardService.showAll(); 
+	public String boardList(Model model, Criteria cri) {
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(100);
+		
+		List<Map<String, Object>> board = boardService.selectBoardList(cri); 
 		model.addAttribute("boards", board);
+		model.addAttribute("pageMaker",pageMaker);
 		return "boardList";
 	}
 	

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardMapper">
+	<!-- <resultMap type="boardVO" id="selectAll">
+		<result column="user_num" property="userNum"></result>
+		<result column="user_name" property="userName"></result>
+		<result column="user_id" property="userId"></result>
+		<result column="user_pass" property="userPass"></result>
+	</resultMap>
+	 -->  
+	<!-- 추가 -->
+	<!-- <insert id="insert">
+		INSERT INTO pej_board(board_num, board_tit, board_con, board_rei_date)
+		VALUES(nextval(user_seq), #{boardTit}, #{boardCon}, now())
+	</insert> --> 
+	<!-- <insert id="insert">
+		<selectKey keyProperty="boardNum" resultType="Long" order="BEFORE">
+		select nextval(user_seq) from dual
+		</selectKey>
+		INSERT INTO pej_board(board_num, board_tit, board_con, board_rei_date)
+		VALUES(#{boardNum}, #{boardTit}, #{boardCon}, now())
+	</insert> -->
+	
+	<insert id="insert" parameterType="boardVO">
+		<selectKey keyProperty="boardNum" resultType="Long" order="BEFORE">
+			select nextval(user_seq) from dual
+		</selectKey>
+		INSERT INTO pej_board(board_num, board_tit, board_con, board_rei_date, user_id)
+		VALUES(#{boardNum}, #{boardTit}, #{boardCon}, now(), #{userId})
+	</insert>
+
+	<!-- 수정 --> 
+	<update id="update">
+		UPDATE pej_board
+		SET board_tit= #{boardTit}, board_con= #{boardCon}, board_up_date= now()
+		WHERE board_num= #{boardNum}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="delete">
+		DELETE FROM pej_board
+		WHERE board_num= #{boardNum}
+	</delete>
+	
+	<!-- 조회 -->
+    <select resultType="boardVO" id="select">
+    	SELECT board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate
+    	FROM pej_board
+    	WHERE board_num = #{boardNum} 
+    </select>
+
+	<!-- 전체조회 -->
+	<select resultType="boardVO" id="selectAll">
+		select board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate, user_id as userId
+		from pej_board 
+		<!-- <![CDATA[
+        WHERE ROWNUM <= #{page} * #{amount}
+        ) WHERE R > (#{page} - 1) * #{amount}
+        ]]> -->
+	</select>
+	
+	<!-- 전체 갯수 -->
+	<select id="getTotal" resultType="_int">
+    	SELECT COUNT(board_num) 
+   	 	FROM pej_board
+	</select>
+	
+	<!-- 게시물 목록 + 페이징 -->
+	<select id="listPage" parameterType="hashMap" resultType="boardVO">
+		 select
+		 board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate
+		 from pej_board 
+		 order by board_num desc
+		 limit #{displayPost}, #{postNum}
+		</select>
+	
+	
+	
+	
+</mapper>

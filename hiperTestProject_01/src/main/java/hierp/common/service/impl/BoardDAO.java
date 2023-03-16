@@ -1,6 +1,7 @@
 package hierp.common.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -44,8 +45,14 @@ public class BoardDAO extends EgovAbstractMapper {
 		return selectList("BoardMapper.selectAll");
 	}
 //	전체갯수
-	public int findCounAll() {
-		sqlSessionTemplate.selectOne("BoardMapper.getTotal");
-		return 0;
+	public int countBoardList(){
+	    return (Integer) selectOne("BoardMapper.countBoardList");
 	}
+
+//	페이징
+	public List<Map<String, Object>> selectBoardList(Criteria cri){
+		return selectList("BoardMapper.selectBoardList");
+	}
+	
+	
 }

@@ -18,6 +18,18 @@
 		<link rel="stylesheet" type="text/css" href="css/board.css" />
 		<link rel="stylesheet" type="text/css" href="css/boardList.css" />
 		
+		<style>
+		ul {
+			list-style: none;
+			width : 30%;
+			display: inline-block;
+		}
+		
+		li {
+			float: left;
+			margin-left : 5px;
+		}
+	</style>
 	</head>
 	<body>
 	<header>
@@ -31,6 +43,7 @@
 		</c:otherwise>
 	</c:choose> --%>
 		</ul>	
+		
 	</header>
 		<div class="job_wrap" id="container">
 			<h2>공지사항</h2>
@@ -83,18 +96,36 @@
 				</c:forEach>
 				</tbody>
 			</table>
+			<ul class="btn-group pagination">
+			    <c:if test="${pageMaker.prev }">
+			    <li>
+			        <a href='<c:url value="/board/boardList?page=${pageMaker.startPage-1 }"/>'><i class="fa fa-chevron-left"></i></a>
+			    </li>
+			    </c:if>
+			    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">
+			    <li>
+			        <a href='<c:url value="/board/boardList?page=${pageNum }"/>'><i class="fa">${pageNum }</i></a>
+			    </li>
+			    </c:forEach>
+			    <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+			    <li>
+			        <a href='<c:url value="/board/boardList?page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a>
+			    </li>
+			    </c:if>
+			</ul>
+			
 			
 			
 
-			<div class="num">
+			<!-- <div class="num">
 				<span><img src="images/num_left_02.png"></span><span><img src="images/num_left.png"></span>
 				<span class="num_active">1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span><img src="images/num_right.png"></span><span><img src="images/num_right_02.png"></span>
-			</div>
+			</div> -->
 		</div>
 	</body>
 	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
-
+	var actionForm = $('#actionForm'); $('.paginate_button a').on('click', function(e) { e.preventDefault();
 		/* $(document).on('click', '#detail', function(){
 
 		location.href = "${pageContext.request.contextPath}/jsp/detail";

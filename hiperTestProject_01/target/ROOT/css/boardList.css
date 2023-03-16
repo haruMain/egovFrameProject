@@ -1,0 +1,35 @@
+.register {
+    float: left;
+    margin-right: 550px;
+}
+h3.rei_btn {
+    background-color: #81A4EE;
+    width: 100px;
+    height: 33px;
+    text-align: center;
+    padding-top: 6px;
+}
+.search_box {
+    float: right;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.btn_search {
+    height: 40px;
+    line-height: 40px;
+    background: #81A4EE;
+    border: none;
+    font-size: 17px;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    width: 100px;
+    padding: 2px;
+}
+a.button {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 17px;
+}

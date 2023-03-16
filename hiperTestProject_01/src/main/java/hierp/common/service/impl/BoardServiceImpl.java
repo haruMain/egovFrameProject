@@ -1,6 +1,7 @@
 package hierp.common.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -63,8 +64,16 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 //	전체개수
-	public int getTotal() {
-		return boardDAO.findCounAll();
+	@Override
+	public int countBoardListTotal() {
+		return boardDAO.countBoardList();
 	}
+	
+//	페이징
+	@Override
+	public List<Map<String, Object>> selectBoardList(Criteria cri) {
+		return boardDAO.selectBoardList(cri);
+	}
+
 
 }

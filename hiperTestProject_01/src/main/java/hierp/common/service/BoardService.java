@@ -1,6 +1,7 @@
 package hierp.common.service;
 
 import java.util.List;
+import java.util.Map;
 
 import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
@@ -18,4 +19,8 @@ public interface BoardService {
   public BoardDTO show(Long boardNum);
 //	전체조회
   public List<BoardVO> showAll();
+//  페이징
+  public List<Map<String, Object>> selectBoardList(Criteria cri);
+//  갯수
+  public int countBoardListTotal();
 }
