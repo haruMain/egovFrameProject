@@ -1,7 +1,7 @@
 package hierp.common.domain.vo;
 
 public class PageMaker {
-	 private Criteria cri;
+	 	private Criteria cri;
 	    private int totalCount;
 	    private int startPage;
 	    private int endPage;

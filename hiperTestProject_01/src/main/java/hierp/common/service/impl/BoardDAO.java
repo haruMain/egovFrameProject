@@ -26,7 +26,6 @@ public class BoardDAO extends EgovAbstractMapper {
 //	추가
 	public void save(BoardDTO boardDTO) {
 		sqlSessionTemplate.insert("BoardMapper.insert",boardDTO);
-		
 	}
 //	수정
 	public void setBoardVO(BoardDTO boardDTO) {
@@ -48,7 +47,6 @@ public class BoardDAO extends EgovAbstractMapper {
 	public int countBoardList(){
 	    return (Integer) selectOne("BoardMapper.countBoardList");
 	}
-
 //	페이징
 	public List<Map<String, Object>> selectBoardList(Criteria cri){
 		return selectList("BoardMapper.selectBoardList");

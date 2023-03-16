@@ -38,6 +38,7 @@ public class BoardController {
 		List<Map<String, Object>> board = boardService.selectBoardList(cri); 
 		model.addAttribute("boards", board);
 		model.addAttribute("pageMaker",pageMaker);
+		pageMaker.setTotalCount(boardService.countBoardListTotal());
 		return "boardList";
 	}
 	

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Criteria {
 	 private int page;
-	    private int perPageNum;
+	 private int perPageNum;
 	    
 	    public int getPageStart() {
 	        return (this.page-1)*perPageNum;

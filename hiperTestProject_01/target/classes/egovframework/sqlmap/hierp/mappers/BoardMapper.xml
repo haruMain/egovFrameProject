@@ -68,12 +68,14 @@
 	
 	<!-- 게시물 목록 + 페이징 -->
 	<select id="selectBoardList" resultType="hashmap" parameterType="hashmap">
+	<![CDATA[
 		 select
 		 board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate
 		 from pej_board 
 		 
 		 order by board_num desc
-		 limit #{pageStart}, #{perPageNum}
+		 limit pageStart = #{pageStart}, perPageNum = #{perPageNum}
+		  ]]>
 	</select>
 	
 	<select id="countBoardList" resultType="Integer">
@@ -82,8 +84,6 @@
             count(*)
         FROM
             pej_board
-        WHERE
-            DEL_CHK='N'
     ]]>
 	</select>
 	
