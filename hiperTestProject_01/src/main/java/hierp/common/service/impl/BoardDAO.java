@@ -40,7 +40,7 @@ public class BoardDAO extends EgovAbstractMapper {
 		return selectOne("BoardMapper.select",boardNum);
 	}
 //	전체조회
-	public List<BoardVO> findAll() {
+	public List<BoardVO> findAll(Criteria criteria) {
 		return selectList("BoardMapper.selectAll");
 	}
 //	전체갯수
@@ -48,9 +48,9 @@ public class BoardDAO extends EgovAbstractMapper {
 	    return (Integer) selectOne("BoardMapper.countBoardList");
 	}
 //	페이징
-	public List<Map<String, Object>> selectBoardList(Criteria cri){
-		return selectList("BoardMapper.selectBoardList");
-	}
+//	public List<Map<String, Object>> selectBoardList(Criteria cri){
+//		return selectList("BoardMapper.selectBoardList");
+//	}
 	
 	
 }

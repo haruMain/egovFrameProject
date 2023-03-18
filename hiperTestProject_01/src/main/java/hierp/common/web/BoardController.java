@@ -1,7 +1,6 @@
 package hierp.common.web;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import hierp.common.domain.vo.BoardDTO;
 import hierp.common.domain.vo.BoardVO;
 import hierp.common.domain.vo.Criteria;
-import hierp.common.domain.vo.PageMaker;
+import hierp.common.domain.vo.PageDTO;
 import hierp.common.domain.vo.ReplyVO;
 import hierp.common.service.BoardService;
 import hierp.common.service.ReplyService;
@@ -29,18 +28,26 @@ public class BoardController {
 	
 //	게시글 목록
 	@RequestMapping(value = "/list.do")
-	public String boardList(Model model, Criteria cri) {
+	public String boardList(Model model, Criteria criteria) {
 		
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(100);
-		
-		List<Map<String, Object>> board = boardService.selectBoardList(cri); 
+		List<BoardVO> board = boardService.showAll(criteria);
 		model.addAttribute("boards", board);
-		model.addAttribute("pageMaker",pageMaker);
-		pageMaker.setTotalCount(boardService.countBoardListTotal());
+		model.addAttribute("pageDTO", new PageDTO(136, criteria));
 		return "boardList";
 	}
+//	@RequestMapping(value = "/list.do")
+//	public String boardList(Model model, Criteria cri) {
+//		
+//		PageMaker pageMaker = new PageMaker();
+//		pageMaker.setCri(cri);
+////		pageMaker.setTotalCount(100);
+//		
+//		List<Map<String, Object>> board = boardService.selectBoardList(cri); 
+//		model.addAttribute("boards", board);
+//		model.addAttribute("pageMaker",pageMaker);
+//		pageMaker.setTotalCount(boardService.countBoardListTotal());
+//		return "boardList";
+//	}
 	
 //	게시글 등록
 	@RequestMapping(value = "/create.do", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
@@ -87,13 +94,13 @@ public class BoardController {
 		return "redirect:list.do";
 	}
 //  게시물 목록 + 페이징 추가
-	@RequestMapping(value = "/listpage.do", method = RequestMethod.GET)
-	public void getListPage(Model model) throws Exception {
-	  
-	 List<BoardVO> list = null; 
-	 list = boardService.showAll();
-	 model.addAttribute("list", list);   
-	}
+//	@RequestMapping(value = "/listpage.do", method = RequestMethod.GET)
+//	public void getListPage(Model model) throws Exception {
+//	  
+//	 List<BoardVO> list = null; 
+//	 list = boardService.showAll();
+//	 model.addAttribute("list", list);   
+//	}
 }
 
 

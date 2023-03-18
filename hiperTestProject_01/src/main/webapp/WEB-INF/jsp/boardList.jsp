@@ -96,7 +96,27 @@
 				</c:forEach>
 				</tbody>
 			</table>
-			<ul class="btn-group pagination">
+			<div>
+			<c:if test="${pageDTO.prev }">
+				<a class="changePage" href="${pageDTO.startPage -1}"><code>&lt;</code></a>
+			</c:if>
+			<c:forEach var="num" begin="${pageDTO.startPage }" end="${pageDTO.endPage }">
+				<c:choose>
+					<c:when test="${pageDTO.criteria.pageNum == num }">
+						<code><c:out value="${num}"/></code>
+				</c:when>
+				<c:otherwise>
+					<a class="changePage" href="${num}"><code><c:out value="${num}"/></code></a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${pageDTO.next }">
+				<a class="changePage" href="${pageDTO.endPage + 1}"><code>&gt;</code></a>
+			</c:if>	
+			</div>
+			
+			
+			<%-- <ul class="btn-group pagination">
 			    <c:if test="${pageMaker.prev }">
 			    <li>
 			        <a href='<c:url value="/list.do?page=${pageMaker.startPage-1 }"/>'><i class="fa fa-chevron-left"></i></a>
@@ -112,7 +132,7 @@
 			        <a href='<c:url value="/List.do?page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a>
 			    </li>
 			    </c:if>
-			</ul>
+			</ul> --%>
 			
 			
 			

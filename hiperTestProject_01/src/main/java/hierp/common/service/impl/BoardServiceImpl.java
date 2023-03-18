@@ -59,8 +59,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 //	전체조회
 	@Override
-	public List<BoardVO> showAll() {
-		return boardDAO.findAll();
+	public List<BoardVO> showAll(Criteria criteria) {
+		return boardDAO.findAll(criteria);
 	}
 	
 //	전체개수
@@ -70,10 +70,10 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 //	페이징
-	@Override
-	public List<Map<String, Object>> selectBoardList(Criteria cri) {
-		return boardDAO.selectBoardList(cri);
-	}
+//	@Override
+//	public List<Map<String, Object>> selectBoardList(Criteria cri) {
+//		return boardDAO.selectBoardList(cri);
+//	}
 
 
 }

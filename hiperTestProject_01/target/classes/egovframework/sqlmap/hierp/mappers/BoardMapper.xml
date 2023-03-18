@@ -54,11 +54,13 @@
 	<select resultType="boardVO" id="selectAll">
 		select board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate, user_id as userId
 		from pej_board 
+		order by board_num desc
+		limit 1, 10
+	</select>
 		<!-- <![CDATA[
         WHERE ROWNUM <= #{page} * #{amount}
         ) WHERE R > (#{page} - 1) * #{amount}
         ]]> -->
-	</select>
 	
 	<!-- 전체 갯수 -->
 	<select id="getTotal" resultType="_int">
@@ -67,7 +69,17 @@
 	</select>
 	
 	<!-- 게시물 목록 + 페이징 -->
-	<select id="selectBoardList" resultType="hashmap" parameterType="hashmap">
+	<!-- <select id="selectBoardList" resultType="hashmap" parameterType="hashmap">
+	
+		 select
+		 board_num, board_tit, board_con, board_rei_date
+		 from pej_board 
+		 
+		 order by board_num desc
+		  
+	</select> -->
+		<!--  LIMIT #{pageStart}, #{perPageNum} -->
+<!-- 	<select id="selectBoardList" resultType="hashmap" parameterType="hashmap">
 	<![CDATA[
 		 select
 		 board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate
@@ -76,7 +88,7 @@
 		 order by board_num desc
 		 limit pageStart = #{pageStart}, perPageNum = #{perPageNum}
 		  ]]>
-	</select>
+	</select> -->
 	
 	<select id="countBoardList" resultType="Integer">
     <![CDATA[

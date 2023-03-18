@@ -18,9 +18,9 @@ public interface BoardService {
 //    조회
   public BoardDTO show(Long boardNum);
 //	전체조회
-  public List<BoardVO> showAll();
+  public List<BoardVO> showAll(Criteria criteria);
 //  페이징
-  public List<Map<String, Object>> selectBoardList(Criteria cri);
+//  public List<Map<String, Object>> selectBoardList(Criteria cri);
 //  갯수
   public int countBoardListTotal();
 }
