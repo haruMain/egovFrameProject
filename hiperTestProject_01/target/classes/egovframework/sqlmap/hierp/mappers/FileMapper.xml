@@ -4,7 +4,7 @@
 	<resultMap type="fileVO" id="fileInfo">
 		<result column="file_num" property="fileNum"/>
 		<result column="file_name" property="fileName"/>
-		<result column="file_rei_date" property="fileReiDate"/>
+		<!-- <result column="file_rei_date" property="fileReiDate"/> -->
 		<result column="file_uuid" property="fileUuid"/>
 		<result column="board_num" property="boardNum"/>
 	</resultMap>

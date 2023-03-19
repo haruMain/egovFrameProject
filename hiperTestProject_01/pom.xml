@@ -103,10 +103,12 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency> -->
+        
+        
          <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <version>2.5</version>		<!-- 2.5에서 3.1.0으로 변경 -->
             <scope>provided</scope>
         </dependency>
 

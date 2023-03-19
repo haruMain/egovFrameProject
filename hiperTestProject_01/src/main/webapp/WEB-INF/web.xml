@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="WebApp_ID" version="2.5">
+	id="WebApp_ID" version="2.5">   <!-- 2.5 -> 3.1로 변경 -->
 	<display-name>Default</display-name>
 	
 	<welcome-file-list>
@@ -18,7 +18,6 @@
 	<error-code>500</error-code>
 	<location>/errorHandle</location>
 </error-page>
-	
   
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -37,12 +36,6 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   
-  	 <!-- <multipart-config>
-			<location>C:\\upload</location>
-			<max-file-size>20971520</max-file-size> 1MB * 20
-			<max-request-size>41943040</max-request-size> 40MB
-			<file-size-threshold>20971520</file-size-threshold> 20MB
-	</multipart-config> -->
   </servlet>
   
   <servlet-mapping>
@@ -73,4 +66,11 @@
   <session-config>
     <session-timeout>86400</session-timeout>
   </session-config>
+  
+   <!-- <multipart-config>
+			<location>C:\\upload</location>
+			<max-file-size>20971520</max-file-size> 
+			<max-request-size>41943040</max-request-size> 
+			<file-size-threshold>20971520</file-size-threshold> 
+	</multipart-config> -->
 </web-app>

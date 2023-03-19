@@ -24,10 +24,23 @@
 			width : 30%;
 			display: inline-block;
 		}
-		
 		li {
 			float: left;
 			margin-left : 5px;
+		}
+		.changePage{
+			border:1px solid #cccccc;
+			padding:10px 0;
+			color:#6f6e6e;
+			margin:20px 5px 45px 0;
+			display:inline-block;
+			font-size:15px;
+			width:43px;
+			box-sizing: border-box;
+			text-decoration: none;
+		}
+		.page {
+    		text-align: center;
 		}
 	</style>
 	</head>
@@ -85,6 +98,10 @@
 					</tr>
 				</thead>
 				<tbody>
+				<li>
+ <a href="/list.do?num=1">글 목록(페이징)</a> 
+</li>
+				
 				<c:forEach items="${boards}" var="board">
 					<tr>
 						<td><c:out value="${board.boardNum}"></c:out></td>
@@ -96,7 +113,17 @@
 				</c:forEach>
 				</tbody>
 			</table>
+			
 			<div>
+ <c:forEach begin="1" end="${pageNum}" var="num">
+    <span>
+     <a href="/list.do?num=${num}">${num}</a>
+  </span>
+ </c:forEach>
+</div>
+	
+			
+			<%-- <div class="page">
 			<c:if test="${pageDTO.prev }">
 				<a class="changePage" href="${pageDTO.startPage -1}"><code>&lt;</code></a>
 			</c:if>
@@ -113,7 +140,7 @@
 			<c:if test="${pageDTO.next }">
 				<a class="changePage" href="${pageDTO.endPage + 1}"><code>&gt;</code></a>
 			</c:if>	
-			</div>
+			</div> --%>
 			
 			
 			<%-- <ul class="btn-group pagination">
@@ -133,9 +160,6 @@
 			    </li>
 			    </c:if>
 			</ul> --%>
-			
-			
-			
 
 			<!-- <div class="num">
 				<span><img src="images/num_left_02.png"></span><span><img src="images/num_left.png"></span>
@@ -155,6 +179,21 @@
 	            e.preventDefault();
 	            location.href = "detail";
 	        }); */
+	        
+	        $(function() {
+	    		/* $('.whyBtn').click(function() {
+	    			location.href = '<c:url value="/FreeBoard/freeWrite"/>';
+	    		}) */
+	    		$('#pagination').on('click', 'a', function(e) {
+	    			e.preventDefault();
+	    			console.log($(this));
+	    			const value = $(this).data('pagenum');
+	    			console.log(value);
+	    			document.pageForm.pageNum.value = value;
+	    			document.pageForm.submit();
+	    		});
+	    		
+	    	})
 
 </script>
 	</html>

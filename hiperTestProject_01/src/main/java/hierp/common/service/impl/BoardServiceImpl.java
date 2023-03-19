@@ -27,13 +27,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void register(BoardDTO boardDTO) {
 		boardDAO.save(boardDTO);
-		List<FileVO> files = boardDTO.getFiles();
-		 Optional.ofNullable(files).ifPresent(fileList -> {
-	            fileList.forEach(file -> {
-	                file.setBoardNum(boardDTO.getBoardNum());
-	                fileDAO.save(file);
-	            });
-	        });
+//		List<FileVO> files = boardDTO.getFiles();
+		/*
+		 * Optional.ofNullable(files).ifPresent(fileList -> { fileList.forEach(file -> {
+		 * file.setBoardNum(boardDTO.getBoardNum()); fileDAO.save(file); }); });
+		 */
 	}
 	
 //	수정
@@ -59,8 +57,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 //	전체조회
 	@Override
-	public List<BoardVO> showAll(Criteria criteria) {
-		return boardDAO.findAll(criteria);
+	public List<BoardVO> showAll() {
+		return boardDAO.findAll();
 	}
 	
 //	전체개수
@@ -68,12 +66,13 @@ public class BoardServiceImpl implements BoardService {
 	public int countBoardListTotal() {
 		return boardDAO.countBoardList();
 	}
+
+@Override
+public List<BoardVO> listPage(int displayPost, int postNum) throws Exception {
+	return boardDAO.listPage(displayPost, postNum);
+}
 	
 //	페이징
-//	@Override
-//	public List<Map<String, Object>> selectBoardList(Criteria cri) {
-//		return boardDAO.selectBoardList(cri);
-//	}
 
 
 }

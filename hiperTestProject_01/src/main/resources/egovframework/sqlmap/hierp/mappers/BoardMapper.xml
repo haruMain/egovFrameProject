@@ -10,18 +10,6 @@
 	</resultMap>
 	 -->  
 	<!-- 추가 -->
-	<!-- <insert id="insert">
-		INSERT INTO pej_board(board_num, board_tit, board_con, board_rei_date)
-		VALUES(nextval(user_seq), #{boardTit}, #{boardCon}, now())
-	</insert> --> 
-	<!-- <insert id="insert">
-		<selectKey keyProperty="boardNum" resultType="Long" order="BEFORE">
-		select nextval(user_seq) from dual
-		</selectKey>
-		INSERT INTO pej_board(board_num, board_tit, board_con, board_rei_date)
-		VALUES(#{boardNum}, #{boardTit}, #{boardCon}, now())
-	</insert> -->
-	
 	<insert id="insert" parameterType="boardVO">
 		<selectKey keyProperty="boardNum" resultType="Long" order="BEFORE">
 			select nextval(user_seq) from dual
@@ -52,15 +40,15 @@
 
 	<!-- 전체조회 -->
 	<select resultType="boardVO" id="selectAll">
-		select board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate, user_id as userId
+		select board_num as boardNum, board_tit as boardTit , board_con as boardCon, board_rei_date as boardReiDate
 		from pej_board 
 		order by board_num desc
-		limit 1, 10
+		limit #{displayPost}, #{postNum}
 	</select>
-		<!-- <![CDATA[
-        WHERE ROWNUM <= #{page} * #{amount}
-        ) WHERE R > (#{page} - 1) * #{amount}
-        ]]> -->
+	
+<!-- 		limit #{pageNum}, #{amount} -->
+	<!--limit ${pageNum}, ${amount} -->
+		
 	
 	<!-- 전체 갯수 -->
 	<select id="getTotal" resultType="_int">

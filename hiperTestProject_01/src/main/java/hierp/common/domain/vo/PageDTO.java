@@ -5,31 +5,31 @@ public class PageDTO {
 	private int endPage;
 	private int realEnd;
 	private boolean prev, next;
-	
+
 	public PageDTO() {;}	
-	
+
 	private int total;
 	private Criteria criteria;
-	
+
 	public PageDTO(int total, Criteria criteria) {
 		this.total = total;
 		this.criteria = criteria;
-		
+
 		this.endPage = (int)(Math.ceil(criteria.getPageNum() / (double)criteria.getAmount())) * criteria.getAmount();
 		this.startPage = endPage - (criteria.getAmount() - 1);
-		
+
 		this.realEnd = (int)Math.ceil(total * 1.0 / criteria.getAmount());
-		
+
 		if(this.realEnd < this.endPage) {
 			this.endPage = this.realEnd;
 		}
-		
+
 		this.prev = this.startPage > 1;
 		this.next = this.endPage < this.realEnd;
 	}
-	
-	
-	
+
+
+
 
 	public int getStartPage() {
 		return startPage;
@@ -96,6 +96,7 @@ public class PageDTO {
 				+ getCriteria() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
 				+ super.toString() + "]";
 	}
+
 	
 	
 }

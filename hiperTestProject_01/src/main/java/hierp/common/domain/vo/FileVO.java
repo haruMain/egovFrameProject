@@ -1,32 +1,24 @@
 package hierp.common.domain.vo;
 
 public class FileVO {
-	private Long fileNum;
-	private String fileName;
-	private String fileReiDate;
+	private int boardNum;
+	private int fileNum;
 	private String fileUuid;
-	private Long boardNum;
-	private String fileUploadPath;
-	private boolean fileImageCheck;
-	private Long fileSize;
-	
-	public Long getFileNum() {
+	private String uploadPath;
+	private long fileSize;
+	private String fileName;
+	private boolean fileType;
+	public int getBoardNum() {
+		return boardNum;
+	}
+	public void setBoardNum(int boardNum) {
+		this.boardNum = boardNum;
+	}
+	public int getFileNum() {
 		return fileNum;
 	}
-	public void setFileNum(Long fileNum) {
+	public void setFileNum(int fileNum) {
 		this.fileNum = fileNum;
-	}
-	public String getFileName() {
-		return fileName;
-	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-	public String getFileReiDate() {
-		return fileReiDate;
-	}
-	public void setFileReiDate(String fileReiDate) {
-		this.fileReiDate = fileReiDate;
 	}
 	public String getFileUuid() {
 		return fileUuid;
@@ -34,39 +26,35 @@ public class FileVO {
 	public void setFileUuid(String fileUuid) {
 		this.fileUuid = fileUuid;
 	}
-	public Long getBoardNum() {
-		return boardNum;
+	public String getUploadPath() {
+		return uploadPath;
 	}
-	public void setBoardNum(Long boardNum) {
-		this.boardNum = boardNum;
+	public void setUploadPath(String uploadPath) {
+		this.uploadPath = uploadPath;
 	}
-	public String getFileUploadPath() {
-		return fileUploadPath;
-	}
-	public void setFileUploadPath(String fileUploadPath) {
-		this.fileUploadPath = fileUploadPath;
-	}
-	public boolean isFileImageCheck() {
-		return fileImageCheck;
-	}
-	public void setFileImageCheck(boolean fileImageCheck) {
-		this.fileImageCheck = fileImageCheck;
-	}
-	public Long getFileSize() {
+	public long getFileSize() {
 		return fileSize;
 	}
-	public void setFileSize(Long fileSize) {
+	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public boolean isFileType() {
+		return fileType;
+	}
+	public void setFileType(boolean fileType) {
+		this.fileType = fileType;
 	}
 	@Override
 	public String toString() {
-		return "FileVO [fileNum=" + fileNum + ", fileName=" + fileName + ", fileReiDate=" + fileReiDate + ", fileUuid="
-				+ fileUuid + ", boardNum=" + boardNum + ", fileUploadPath=" + fileUploadPath + ", fileImageCheck="
-				+ fileImageCheck + ", fileSize=" + fileSize + "]";
+		return "FileVO [boardNum=" + boardNum + ", fileNum=" + fileNum + ", fileUuid=" + fileUuid + ", uploadPath="
+				+ uploadPath + ", fileSize=" + fileSize + ", fileName=" + fileName + ", fileType=" + fileType + "]";
 	}
-	public void create(String fileName, String fileReiDate, String fileUuid) {
-		this.fileName = fileName;
-		this.fileReiDate = fileReiDate;
-		this.fileUuid = fileUuid;
-	}
+	
+	
 }
